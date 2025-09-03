@@ -1,0 +1,325 @@
+/* SearchRoomPage.module.css */
+
+.pageContainer {
+  display: flex; /* Fixed typo: removed 'czas' */
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-top: 100px; /* Add padding to the top to create space for the header */
+  background-color: black;
+  min-height: 100vh;
+  color: black;
+  position: relative; /* Make this relative for the button */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg, #6a5acd, #ff7f50); /* Ensure the header has a background */
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 35px;
+  text-align: center;
+}
+
+.cartButton {
+  position: fixed;
+  top: 16px;
+  right: 20px; /* Positioned on right for consistency */
+  font-size: clamp(20px, 4vw, 24px);
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: clamp(8px, 2vw, 10px);
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cartButton:hover {
+  background-color: #f10404;
+  transform: scale(1.1); /* Replaced margin-right with scale for better UX */
+}
+
+.saveButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.saveButton {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #444;
+}
+
+.saveButton:hover {
+  color: #007bff;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+h1 {
+  color: black; /* Changed to black */
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.back {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0; /* Add some margin for spacing */
+}
+
+.searchBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0; 
+  margin-top: 60px;/* Add some margin for spacing */
+}
+
+.searchBar select {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #4facfe;
+  border-radius: 25px;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.searchBar input {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #4facfe;
+  border-radius: 25px;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*.back button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background-color: #0313f5;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}*/
+
+.searchBar button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background-color: #0313f5;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.searchBar button:hover {
+  background-color: #1503a3;
+  transform: scale(1.05);
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 10px;
+  margin-top: 20px;
+}
+
+.roomCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #050505; /* Blue border */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.3s;
+  color: black; /* Changed text color to black */
+  text-align: left;
+  cursor: pointer;
+}
+
+.roomCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.roomCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.roomDetails p {
+  margin: 8px 0;
+  color: black; /* Changed text color to black */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.closeModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  border: none;
+  background: transparent;
+  color: black; /* Changed close button color to black */
+  cursor: pointer;
+}
+
+.backArrowButton {
+  background-color: rgba(0, 0, 0, 0.2); /* Added default background for visibility */
+  border: none;
+  font-size: clamp(18px, 4vw, 24px);
+  cursor: pointer;
+  color: #ffffff;
+  position: fixed;
+  top: clamp(14px, 3vw, 18px);
+  left: clamp(14px, 4vw, 18px); /* Increased spacing for better placement */
+  z-index: 1001; /* Increased to ensure visibility over header */
+  transition: color 0.3s ease, transform 0.2s, background-color 0.3s;
+  padding: clamp(6px, 2vw, 8px); /* Adjusted padding for touch */
+  border-radius: 50%; /* Circular touch area */
+  line-height: 1; /* Ensure icon aligns properly */
+}
+
+.backArrowButton:hover {
+  color: #007bff;
+  transform: scale(1.15); /* Slightly larger scale for better feedback */
+  background-color: rgba(255, 255, 255, 0.3); /* Hover background */
+}
+
+@media (max-width: 600px) {
+  .pageContainer {
+    padding-top: 80px; /* Reduce padding for smaller screens */
+  }
+
+  .header h1 {
+    font-size: 25px; /* Smaller font size for the header */
+  }
+
+  .searchBar,
+  .back {
+    flex-direction: column; /* Stack search elements vertically */
+    align-items: stretch; /* Stretch to full width */
+  }
+
+  .searchBar select,
+  .searchBar input,
+  .searchBar button,
+  .back button {
+    width: 100%; /* Full width for inputs and buttons */
+  }
+
+  .roomGrid {
+    margin-top: 20px;
+  }
+
+  .roomCard {
+    padding: 15px;
+  }
+
+  .backToHomeButton {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .cartButton {
+    top: 15px;
+    right: 15px; /* Consistent right positioning */
+    font-size: clamp(18px, 3vw, 20px);
+    padding: clamp(7px, 2vw, 9px);
+  }
+
+  .backArrowButton {
+    top: clamp(12px, 3vw, 16px);
+    left: clamp(12px, 4vw, 16px);
+    font-size: clamp(16px, 4vw, 20px);
+    padding: clamp(5px, 2vw, 7px);
+  }
+}
+
+@media (max-width: 480px) {
+  .backArrowButton {
+    top: clamp(10px, 3vw, 14px);
+    left: clamp(10px, 4vw, 14px);
+    font-size: clamp(14px, 4vw, 18px);
+    padding: clamp(4px, 2vw, 6px);
+  }
+}
+
+@media (max-width: 375px) {
+  .backArrowButton {
+    top: clamp(8px, 3vw, 12px);
+    left: clamp(8px, 4vw, 12px);
+    font-size: clamp(12px, 4vw, 16px);
+    padding: clamp(4px, 2vw, 6px);
+  }
+}
+
+@media (max-width: 320px) {
+  .backArrowButton {
+    top: clamp(8px, 3vw, 12px);
+    left: 12px;
+    font-size: 16px;
+    padding: 6px;
+    background-color: rgba(0.2); /* Slightly darker for visibility */
+  }
+}

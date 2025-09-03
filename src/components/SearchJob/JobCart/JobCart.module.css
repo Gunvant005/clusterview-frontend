@@ -1,0 +1,56 @@
+
+.jobCartContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .jobCard {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .jobCardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .jobLogo {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+  }
+  
+  .backButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .backButton:hover {
+    background-color: #0056b3;
+  }
+
+  .unsaveButton {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .unsaveButton:hover {
+    background-color: #c82333;
+  }

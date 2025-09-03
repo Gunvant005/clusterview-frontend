@@ -1,0 +1,338 @@
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #000000;
+  color: white;
+  overflow: hidden;
+}
+
+/* Main Content */
+.mainContent {
+  flex-grow: 1; /* Takes remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content */
+  align-items: center;
+  padding: 20px;
+}
+
+/* Top Bar */
+.topBar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* Slightly reduced padding for smaller screens */
+  background: linear-gradient(45deg, #6a5acd, #ff7f50);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;  font-size: 25px;
+}
+
+.menuIcon {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 150px;
+}
+
+.menuItem {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #07035b;
+}
+
+.menuItem:hover {
+  background-color: #12c92a;
+}
+
+/* Buttons */
+.buttonContainer {
+  display: flex;
+  flex-wrap: nowrap; /* Default: no wrapping on larger screens */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  max-width: 90%; /* Prevents overflow */
+}
+
+.adminButton {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #1e14d0, #00bcd4);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color:black ;
+}
+
+.adminButton:hover {
+  background: linear-gradient(45deg, #00bcd4, #1e14d0);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.adminButton:active {
+  transform: scale(0.98);
+}
+
+/* Popup */
+.customPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background: black;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.popupActions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popupButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popupButton.confirm {
+  background-color: #f44336;
+  color: white;
+}
+
+.popupButton.cancel {
+  background-color: #4caf50;
+  color: white;
+}
+
+.popupButton:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+.AdminFooter {
+  text-align: center;
+  padding: 12px 0;
+  background: #6a5acd;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+}
+
+/* Admin Email */
+.adminEmail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.userIcon {
+  font-size: 18px;
+  color: #007bff; /* Blue color for the user icon */
+}
+
+.powerIcon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #0f0e0e; /* Dark color for power icon */
+}
+
+.powerIcon:hover {
+  color: #fa0303; /* Red on hover */
+}
+
+/* Responsive Adjustments */
+
+/* Large Screens (Above 1024px) */
+@media (min-width: 1025px) {
+  .buttonContainer {
+    gap: 30px; /* Larger gap for better spacing */
+  }
+
+  .adminButton {
+    width: 150px;
+    height: 150px;
+    font-size: 20px;
+  }
+
+  .adminEmail {
+    font-size: 16px; /* Slightly larger text */
+  }
+}
+
+/* Tablets (769px - 1024px) */
+@media (max-width: 1024px) {
+  .buttonContainer {
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 15px;
+    max-width: 600px; /* Limit width for better layout */
+  }
+
+  .adminButton {
+    width: 130px; /* Slightly smaller buttons */
+    height: 130px;
+    font-size: 18px;
+  }
+
+  .topBar {
+    font-size: 22px; /* Slightly smaller title */
+    padding: 15px;
+  }
+
+  .adminEmail {
+    right: 40px; /* Adjust position */
+    font-size: 13px;
+  }
+
+  .userIcon,
+  .powerIcon {
+    font-size: 16px; /* Smaller icons */
+  }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 768px) {
+  .buttonContainer {
+    flex-wrap: wrap; /* Wrap buttons into a 2x2 grid */
+    gap: 10px;
+    max-width: 300px; /* Compact layout */
+    top: 55%; /* Adjust vertical position */
+  }
+
+  .adminButton {
+    width: 45%; /* Two buttons per row */
+    height: 120px;
+    font-size: 16px;
+  }
+
+  .topBar {
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+
+  .menuIcon {
+    font-size: 25px;
+  }
+
+  .dropdownMenu {
+    top: 50px;
+    right: 15px;
+    width: 120px;
+  }
+
+  .menuItem {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .adminEmail {
+    right: 35px;
+    font-size: 12px;
+  }
+
+  .userIcon,
+  .powerIcon {
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile Devices (Below 480px) */
+@media (max-width: 480px) {
+  .buttonContainer {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    width: 100%; /* Full width */
+    max-width: 300px; /* Keep a structured layout */
+  }
+
+  .adminButton {
+    width: 45%; /* Two buttons per row */
+    height: 120px;
+  }
+
+  .topBar {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .menuIcon {
+    font-size: 22px;
+  }
+
+  .dropdownMenu {
+    top: 45px;
+    right: 10px;
+    width: 100px;
+  }
+
+  .adminEmail {
+    right: 30px;
+    font-size: 10px;
+  }
+
+  .userIcon,
+  .powerIcon {
+    font-size: 12px;
+  }
+
+  .popupContent {
+    padding: 15px;
+    max-width: 300px;
+  }
+
+  .popupButton {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}

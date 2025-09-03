@@ -1,0 +1,273 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: black;
+  min-height: 100vh;
+  color: black;
+  position: relative
+}
+
+.header {
+  position: fixed; /* Fix the header at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg, #6a5acd, #ff7f50); /* Add linear gradient background */
+  padding: 10px 20px; /* Padding for the header */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for the header */
+  z-index: 1000; /* Ensure the header is above other content */
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center the content vertically */
+}
+
+.headerContent {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack heading and search bar vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+/* Cart Button */
+.cartButton {
+  position: fixed;
+  top: 16px;
+  right: 20px; /* Moved to right for consistent placement */
+  font-size: clamp(20px, 4vw, 24px);
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: clamp(8px, 2vw, 10px);
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cartButton:hover {
+  background-color: #f10404;
+  transform: scale(1.1); /* Replaced margin-right with scale for better UX */
+}
+
+.saveButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.saveButton {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #444;
+}
+
+.saveButton:hover {
+  color: #007bff;
+}
+
+.content {
+  margin-top: 120px; /* Add margin to push content below the fixed header */
+  width: 100%; /* Full width for content */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center the content horizontally */
+}
+
+.searchContainer {
+  margin-top: 60px; /* Add margin to push the search bar below the header */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center the search bar */
+  width: 100%; /* Full width for the container */
+}
+
+.searchBar {
+  width: 300px; /* Set a fixed width for the search bar */
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4facfe;
+  border-radius: 25px;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.foodGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px;
+}
+
+.foodCard {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #4facfe;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.3s;
+  text-align: left;
+  cursor: pointer;
+}
+
+.foodCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.imageContainer {
+  display: flex;
+  gap: 10px; /* Space between images */
+  overflow-x: auto; /* Enable horizontal scrolling for overflow */
+}
+
+.foodImage {
+  width: 100px; /* Fixed width for consistent sizing */
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0; /* Prevent shrinking when scrolling */
+}
+
+.foodDetails {
+  margin-top: 10px;
+  color: black;
+}
+
+.backArrowButton {
+  background-color: transparent;
+  border: none;
+  font-size: 28px;
+  margin-top: 5px;
+  cursor: pointer;
+  color: #ffffff; /* Change color as needed */
+  position: absolute;
+  top: 20px; /* Adjust position as needed */
+  left: 10px; /* Adjust position as needed */
+  z-index: 10; /* Ensure it is above other content */
+}
+
+.backArrowButton:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.slideshowContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slideshowImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
+}
+
+.prevButton:hover,
+.nextButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.foodInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.foodName {
+  font-weight: bold;
+  color: #2504fb;
+  margin-left: px; /* Add space between address and foodname */
+}
+
+.foodRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.foodAddress {
+  flex: 1; /* Takes up available space */
+  text-align: left;
+}
+
+.foodName {
+  font-weight: bold;
+  color: #02000e;
+  text-align: right;
+  min-width: 100px; /* Ensures spacing on the right */
+  margin-left: 15px;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .foodCard {
+    padding: 15px;
+  }
+
+  .foodImage {
+    width: 80px;
+    height: 80px;
+  }
+
+  .backToHomeButton {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .cartButton {
+    top: 15px;
+    right: 15px; /* Consistent right positioning */
+    font-size: clamp(18px, 3vw, 20px);
+    padding: clamp(7px, 2vw, 9px);
+  }
+}
+
+@media (max-width: 480px) {
+  .backToHomeButton {
+    font-size: 12px;
+    padding: 10px 15px;
+    margin-right: -10px;
+  }
+
+  .foodImage {
+    width: 70px;
+    height: 70px;
+  }
+
+  .cartButton {
+    top: 15px;
+    right: 10px; /* Adjusted for smaller screens */
+    font-size: clamp(16px, 3vw, 18px);
+    padding: clamp(6px, 2vw, 8px);
+  }
+}

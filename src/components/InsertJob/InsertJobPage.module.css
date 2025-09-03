@@ -1,0 +1,180 @@
+/* Full Page Background */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+}
+
+/* Page Background Gradient */
+.insertJobPageContainer {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(45deg, #5b0eff, #a044ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Area */
+.jobFormContainer {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+/* Header */
+.jobFormContainer h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Inputs and Textareas */
+.jobInputField,
+.jobTextareaField,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jobTextareaField {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Salary with ₹ Symbol */
+.salaryInputContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.rupeeSymbol {
+  position: absolute;
+  top: 35%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #444;
+  font-size: 20px;
+}
+
+.jobInputField[name="salary"] {
+  padding-left: 34px;
+}
+
+/* Submit Button */
+.jobSubmitButton {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ff9800, #f44336);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.jobSubmitButton:hover {
+  background: linear-gradient(135deg, #f44336, #ff9800);
+  transform: scale(1.03);
+}
+
+/* Back Arrow */
+.backArrowButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 100;
+  transition: color 0.3s ease;
+}
+
+.backArrowButton:hover {
+  color: #ffd700;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modalContent {
+  background: white;
+  color: #222;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modalButton {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modalButton:hover {
+  background-color: #1d4ed8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 600px) {
+  .jobFormContainer h1 {
+    font-size: 26px;
+  }
+
+  .jobInputField,
+  .jobTextareaField,
+  .jobSubmitButton {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .backArrowButton {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,304 @@
+.contactUsContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #5b0eff, #a044ff);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.contactUsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.contactUsHeader h1 {
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.backButton:hover {
+  color: #ffd700;
+  transform: scale(1.1);
+}
+
+.contactUsMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.contactUsMain p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contactForm {
+  width: 100%;
+  max-width: 550px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.contactForm:hover {
+  transform: translateY(-5px);
+}
+
+.inputBox {
+  position: relative;
+  width: 100%;
+  height: clamp(45px, 10vw, 55px);
+  margin: clamp(15px, 2.5vw, 20px) 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.inputBox.textareaBox {
+  height: auto;
+  min-height: 150px;
+}
+
+.inputBox input,
+.inputBox textarea {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: #fff;
+  padding: clamp(10px, 2vw, 15px) clamp(40px, 5vw, 50px) clamp(10px, 2vw, 15px) clamp(15px, 2vw, 20px);
+  resize: vertical;
+  transition: background 0.3s ease;
+}
+
+.inputBox input::placeholder,
+.inputBox textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+.inputBox input:focus,
+.inputBox textarea:focus {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.inputBox input:focus + .icon,
+.inputBox textarea:focus + .icon {
+  color: #ffd700;
+}
+
+.inputBox:focus-within {
+  border-color: #ffd700;
+}
+
+.inputBox .icon {
+  position: absolute;
+  right: clamp(12px, 2vw, 20px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.contactForm button {
+  width: 100%;
+  height: clamp(40px, 8vw, 50px);
+  background: linear-gradient(90deg, #1e14d0, #3b2bff);
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(30, 20, 208, 0.4);
+  cursor: pointer;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #fff;
+  font-weight: 600;
+  margin-top: clamp(15px, 2vw, 20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.contactForm button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(30, 20, 208, 0.6);
+  background: linear-gradient(90deg, #0d0a9e, #2a1bff);
+}
+
+.contactForm button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  width: clamp(280px, 80vw, 450px);
+  text-align: center;
+  animation: slideIn 0.4s ease-out;
+}
+
+.modal h2 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.modal button {
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 25px);
+  background: linear-gradient(90deg, #1e14d0, #3b2bff);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.modal button:hover {
+  background: linear-gradient(90deg, #0d0a9e, #2a1bff);
+  transform: scale(1.05);
+}
+
+.contactUsFooter {
+  text-align: center;
+  color: #fff;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactUsContainer {
+    padding: 1.5rem;
+  }
+
+  .contactUsHeader h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .contactUsMain p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+
+  .contactForm {
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .inputBox {
+    margin: clamp(12px, 2vw, 15px) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactUsContainer {
+    padding: 1rem;
+  }
+
+  .contactUsHeader h1 {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+  }
+
+  .backButton {
+    font-size: 1.5rem;
+  }
+
+  .inputBox input,
+  .inputBox textarea {
+    padding: 10px 35px 10px 15px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+
+  .contactForm button {
+    height: 45px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+
+  .modal {
+    width: clamp(250px, 90vw, 350px);
+  }
+}

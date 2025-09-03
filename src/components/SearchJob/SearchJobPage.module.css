@@ -1,0 +1,318 @@
+/* Default Theme (Light Mode) */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: black;
+  min-height: 100vh;
+  color: black;
+  position: relative;
+}
+
+.header {
+  position: fixed; /* Fix the header at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg,#6a5acd, #ff7f50); /* Background color for the header */
+  z-index: 1000; /* Ensure it stays above other content */
+  padding: 10px; /* Add some padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+/* Title Styling */
+h1 {
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Cart Button */
+.cartButton {
+  position: fixed;
+  top: 16px;
+  right: 20px; /* Moved to right for consistent placement */
+  font-size: clamp(20px, 4vw, 24px);
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: clamp(8px, 2vw, 10px);
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cartButton:hover {
+  background-color: #f10404;
+  transform: scale(1.1); /* Subtle scale for better UX */
+}
+
+/* Search Bar */
+.searchBar {
+  width: 60%;
+  max-width: 500px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #2c3e50;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  color: black;
+  background: white;
+  margin-left: 500px;
+}
+
+.searchBar:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37, 117, 252, 0.6);
+}
+
+.saveButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.saveButton {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #444;
+}
+
+.saveButton:hover {
+  color: #007bff;
+}
+
+/* Job List Grid */
+.jobList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 10px;
+  margin-top: 130px;
+}
+
+/* Job Card */
+.jobCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.3s;
+  color: black;
+  text-align: left;
+  border: 1px solid #2c3e50;
+  display: flex; /* Use flexbox for layout */
+}
+
+.jobCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.jobCard h2 {
+  margin: 0;
+  color: #2575fc;
+  font-size: 22px;
+}
+
+/* Job Card Content */
+.jobCardContent {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
+.jobHeader {
+  display: flex;
+  align-items: center; /* Align logo and title horizontally */
+  width: 100%;
+  margin-bottom: 10px; /* Space below the title */
+}
+
+/* Job Logo - Updated to Circular */
+.jobLogo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px; /* Space between logo and title */
+}
+
+/* Job Details */
+.jobDetails {
+  flex: 1; /* Take up remaining space */
+}
+
+.jobTitleContainer {
+  display: flex;
+  align-items: center; /* Align title with the logo */
+}
+
+.jobDetails h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #2575fc;
+}
+
+/* Job Description */
+.jobDetails p {
+  margin: 8px 0;
+  color: #555;
+  text-align: left; /* Align text back to the left */
+  width: 100%; /* Ensure full width */
+  margin-top: 10px;
+}
+
+.jobInfo {
+  margin-top: 10px; /* Space between title and job details */
+}
+
+.backArrowButton {
+  background-color: transparent;
+  border: none;
+  font-size: 28px;
+  margin-top: 5px;
+  cursor: pointer;
+  color: #ffffff; /* Change color as needed */
+  position: absolute;
+  top: 20px; /* Adjust position as needed */
+  left: 10px; /* Adjust position as needed */
+  z-index: 10; /* Ensure it is above other content */
+}
+
+.backArrowButton:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+  .jobList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .searchBar {
+    margin-left: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .jobList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .searchBar {
+    margin-left: 150px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .jobList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .searchBar {
+    margin-left: 150px;
+    width: 80%;
+  }
+
+  .cartButton {
+    top: 15px;
+    right: 15px; /* Consistent right positioning */
+    font-size: clamp(18px, 3vw, 20px);
+    padding: clamp(7px, 2vw, 9px);
+  }
+}
+
+@media (max-width: 600px) {
+  .pageContainer {
+    padding: 15px;
+  }
+
+  .searchBar {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px;
+    margin-left: 14px;
+  }
+
+  .jobList {
+    grid-template-columns: 1fr;
+    padding: 0 5px;
+  }
+
+  .jobCard {
+    padding: 15px;
+    flex-direction: column; /* Stack logo and details on small screens */
+  }
+
+  .jobLogo {
+    margin-right: 0;
+    margin-bottom: 15px; /* Space below logo when stacked */
+    width: 60px; /* Smaller logo on mobile */
+    height: 60px;
+  }
+
+  .jobCard h2 {
+    font-size: 20px;
+  }
+
+  .backToHomeButton {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .cartButton {
+    top: 15px;
+    right: 10px; /* Adjusted for smaller screens */
+    font-size: clamp(16px, 3vw, 18px);
+    padding: clamp(6px, 2vw, 8px);
+  }
+}
+
+@media (max-width: 375px) {
+  .cartButton {
+    top: 15px;
+    right: 8px; /* Further adjusted for very small screens */
+    font-size: clamp(14px, 3vw, 16px);
+    padding: clamp(5px, 2vw, 7px);
+  }
+}
+
+/* Job Description */
+.jobCard p {
+  margin: 8px 0;
+  color: #555;
+}
+
+/* Toggle Switch */
+.toggleSwitch {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #2575fc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggleSwitch:hover {
+  background: #2c3e50;
+}

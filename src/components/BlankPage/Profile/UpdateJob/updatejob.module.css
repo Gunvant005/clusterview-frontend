@@ -1,0 +1,397 @@
+body {
+  background: linear-gradient(135deg, #e0f7fa 0%, #0c69b5 100%);
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root {
+  --primary-color: #2c6e49; /* Forest green */
+  --secondary-color: #d32f2f; /* Red for cancel/delete */
+  --accent-color: #6a5acd; /* Slate blue for back button */
+  --text-color: #333;
+  --border-color: #e0e0e0;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+}
+
+.jobWrapper {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pageTitle,
+.sectionTitle {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+.jobList {
+  margin-top: 1.5rem;
+}
+
+.jobGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.jobItem {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.jobItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.jobItem:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.jobItemContent {
+  text-align: center;
+}
+
+.jobItemContent h3 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.jobItemContent p {
+  color: #666;
+  margin: 0.25rem 0;
+}
+
+.jobThumbnail {
+  width: 100%;
+  max-width: 120px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+}
+
+.noItems {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.jobInputField,
+.jobTextareaField {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  transition: var(--transition);
+}
+
+.jobInputField:focus,
+.jobTextareaField:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(44, 110, 73, 0.3);
+}
+
+.jobTextareaField {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.salaryInputContainer {
+  position: relative;
+}
+
+.rupeeSymbol {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.jobInputField[type="number"] {
+  padding-left: 25px;
+}
+
+.fileInput {
+  padding: 0.5rem 0;
+}
+
+.imagePreview {
+  margin-top: 0.75rem;
+}
+
+.currentLogo {
+  width: 100%;
+  max-width: 120px;
+  height: 80px;
+  object-fit: contain;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+.formActions,
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.jobSubmitButton,
+.jobDeleteButton,
+.jobCancelButton,
+.insertButton,
+.backButton,
+.modalButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  transition: var(--transition);
+}
+
+.jobSubmitButton,
+.insertButton {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.jobSubmitButton:hover,
+.insertButton:hover {
+  background: #1f5a3a;
+  transform: translateY(-2px);
+}
+
+.jobDeleteButton,
+.jobCancelButton,
+.cancelButton {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.jobDeleteButton:hover,
+.jobCancelButton:hover,
+.cancelButton:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+}
+
+.backButton {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.backButton:hover {
+  background: #5c4cb8;
+  transform: translateY(-2px);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modalContent {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 400px;
+  box-shadow: var(--shadow);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.modalSuccess {
+  border-left: 4px solid var(--primary-color);
+}
+
+.modalError {
+  border-left: 4px solid var(--secondary-color);
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.modalContent p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.modalButtonContainer {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.modalButton {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.modalButton:hover {
+  background: #1f5a3a;
+  transform: translateY(-2px);
+}
+
+.cancelButton {
+  background: var(--secondary-color);
+}
+
+.cancelButton:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner {
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .jobWrapper {
+    padding: 1.5rem;
+  }
+  .jobGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  .jobThumbnail,
+  .currentLogo {
+    max-width: 100px;
+    height: 60px;
+  }
+  .modalContent {
+    width: 85%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .jobWrapper {
+    padding: 1rem;
+  }
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+  .jobGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .jobThumbnail,
+  .currentLogo {
+    max-width: 80px;
+    height: 50px;
+  }
+  .form {
+    padding: 1.5rem;
+  }
+  .formActions,
+  .buttonGroup {
+    flex-direction: column;
+  }
+  .jobSubmitButton,
+  .jobDeleteButton,
+  .jobCancelButton,
+  .insertButton,
+  .backButton,
+  .modalButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}

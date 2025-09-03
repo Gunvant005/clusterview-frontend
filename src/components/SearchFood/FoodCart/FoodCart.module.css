@@ -1,0 +1,143 @@
+
+.foodCartContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .foodGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .foodCard {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: black;
+
+  }
+  
+  .foodCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .foodImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .foodDetails {
+    padding: 15px;
+  }
+  
+  .foodDetails h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+  }
+  
+  .foodDetails p {
+    margin: 5px 0;
+  }
+  
+  .backButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+  
+  .backButton:hover {
+    background-color: #0056b3;
+  }
+
+  .unsaveButton {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .unsaveButton:hover {
+    background-color: #c82333;
+  }
+
+  .billButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .billSection {
+    margin-top: 30px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    color: black;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .billTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .billTable th,
+  .billTable td {
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  
+  .printButton {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Print styling */
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    .billSection, .billSection * {
+      visibility: visible;
+    }
+  
+    .billSection {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: white;
+      color: black;
+    }
+  
+    .printButton, .billButton, .backButton, .unsaveButton {
+      display: none;
+    }
+  }
+  
+

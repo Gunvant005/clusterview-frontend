@@ -1,0 +1,213 @@
+/* Background for entire page */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, #4a00e0, #8e2de2); /* Added background */
+  font-family: 'Arial', sans-serif; /* Consistent with common usage */
+  color: #fff; /* Default text color for contrast */
+}
+
+/* Page wrapper */
+.pageWrapper {
+  padding: 1rem; /* Using rem instead of px */
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header section */
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 1rem; /* Add spacing when wrapped */
+}
+
+/* Header title */
+.headerTitle {
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
+  color: #fffcfc;
+}
+
+/* Back button */
+.backButton {
+  background-color: #6a5acd;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Main content */
+.mainContent {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main content title */
+.mainContentTitle {
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Profile table */
+.profileTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.profileTable th,
+.profileTable td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
+
+.profileTable th {
+  background-color: #6a5acd;
+  color: white;
+}
+
+/* Make table responsive */
+@media (max-width: 600px) {
+  .profileTable {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .profileTable th,
+  .profileTable td {
+    min-width: 120px; /* Minimum width for columns */
+  }
+}
+
+/* Text alignment */
+.centerText {
+  text-align: center;
+}
+
+/* Error text */
+.errorText {
+  color: red;
+}
+
+/* Grey text */
+.greyText {
+  color: #666;
+}
+
+/* Edit form */
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  width: 100%;
+}
+
+/* Form input */
+.formInput {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.saveButton,
+.cancelButton,
+.editButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  margin-top: 0.625rem;
+  width: 100%; /* Full width on mobile */
+  max-width: 200px; /* Limit maximum width */
+}
+
+.cancelButton {
+  background-color: #f44336;
+}
+
+.buttonGroup {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9375rem; /* Responsive spacing between buttons */
+}
+
+.buttonGroup .editButton {
+  margin-right: 0; /* Reset original margin */
+}
+
+/* Media Queries for different screen sizes */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 0.75rem;
+  }
+  
+  .headerSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .backButton {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageWrapper {
+    padding: 0.5rem;
+  }
+  
+  .mainContent {
+    padding: 0.75rem;
+  }
+  
+  .profileTable th,
+  .profileTable td {
+    padding: 0.5rem;
+  }
+  
+  .saveButton,
+  .cancelButton,
+  .editButton {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Ensure buttons stack nicely on small screens */
+@media (max-width: 400px) {
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .saveButton,
+  .cancelButton,
+  .editButton {
+    width: 100%;
+    max-width: none;
+  }
+}
