@@ -99,7 +99,7 @@ const LoginRegister = () => {
     if (!validateForm()) return;
     setIsLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/forgot-password', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(forgotData),
@@ -124,7 +124,7 @@ const LoginRegister = () => {
     if (!validateForm()) return;
     setIsLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/send-otp', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/send-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email }),
