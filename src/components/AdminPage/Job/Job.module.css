@@ -846,3 +846,17 @@
     font-size: 0.7rem;
   }
 }
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ffffff40;
+  border-top: 3px solid #4a90e2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
