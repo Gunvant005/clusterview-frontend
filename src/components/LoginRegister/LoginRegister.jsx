@@ -99,7 +99,8 @@ const LoginRegister = () => {
     if (!validateForm()) return;
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/forgot-password`, {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(forgotData),
@@ -124,7 +125,8 @@ const LoginRegister = () => {
     if (!validateForm()) return;
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/send-otp`, {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/send-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email }),
@@ -151,7 +153,10 @@ const LoginRegister = () => {
     }
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/verify-otp`, {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/verify-otp`, {
+
+ 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email, otp }),
@@ -173,7 +178,9 @@ const LoginRegister = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
+       const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+       const response = await fetch(`${API_URL}/register`, {
+     
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -203,7 +210,8 @@ const LoginRegister = () => {
       route = '/admin';
     } else {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
+        const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+        const response = await fetch(`${API_URL}/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: formData.email, password: formData.password }),
