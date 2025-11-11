@@ -16,9 +16,11 @@ const AdminUsers = () => {
     setError(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/fetch-all-users?email=Admin@gmail.com&password=123', {
-        method: 'GET',
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/fetch-all-users?email=Admin@gmail.com&password=123`, {       
+         method: 'GET',
       });
+
 
       if (!response.ok) {
         const errorData = await response.json();
